@@ -25,6 +25,8 @@ class TopHeadlinesFragment() : Fragment(R.layout.top_headlines_fragment) {
         _binding = TopHeadlinesFragmentBinding.bind(view)
         val adapter = NewsListAdapter()
 
+        binding.newsList.adapter = adapter
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.newsArticles.collectLatest {
